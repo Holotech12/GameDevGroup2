@@ -1,3 +1,4 @@
+import gifAnimation.*;
 class Wizard{
   int x,y,w,h,speed,health,lvl;
   boolean pressed = false, moveLeft, moveRight, moveUp, moveDown;
