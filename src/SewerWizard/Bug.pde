@@ -1,3 +1,4 @@
+import gifAnimation.*;
 class Bug{
   int x,y,w,h,speed,health,lvl;
   Bug(int x, int y, int lvl){
