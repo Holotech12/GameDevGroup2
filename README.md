@@ -8,4 +8,4 @@ Our group wants to create a dungeon crawler following a more direct path includi
 ## Design theme
 Pseudo-medieval with magic/fantasy elements
 Main character: wizard sprite
-Enemy: oversized rat and bug sprites
+Enemy: oversized rat and insects sprites, spiders, slimes
