@@ -1,7 +1,6 @@
 # GameDevGroup2
 
-## Title
-Sewer Wizard
+## Title: Sewer Wizard
 
 ## Overview
 
