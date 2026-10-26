@@ -27,6 +27,7 @@ class Wizard{
 
   void display() {
     imageMode(CENTER);
+    fill(100,100,255);
     rect(100,100,x,y);
 //    pushMatrix(); // saves current coords
 //    translate(x, y); // move origin to center
