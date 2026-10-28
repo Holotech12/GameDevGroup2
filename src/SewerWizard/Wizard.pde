@@ -48,6 +48,6 @@ class Wizard{
   }
   boolean isHit(Bug c) {
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
-    return distance < size/2;
+    return distance < size;
   }
 }
