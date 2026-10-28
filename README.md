@@ -25,7 +25,7 @@ Enemies attack with projectiles and the player must dodge these while being obst
 
 [Link to Source Code](https://github.com/Holotech12/GameDevGroup2/tree/main/src)
 
-##How to Run
+## How to Run
 Built with Processing. Processing version: 4.0.1 Main sketch and project folder: SewerWizard
 
 Required libraries: gifAnimation, Sound
