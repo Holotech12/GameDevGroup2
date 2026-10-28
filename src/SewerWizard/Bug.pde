@@ -1,16 +1,17 @@
-import gifAnimation.*;
-class Bug{
+//import gifAnimation.*;
+class Bug {
   PVector pos;
-  int x,y,w,h,speed,health,lvl;
-  Bug(int x, int y, int lvl){
+  int x, y, size, speed, health, lvl;
+  Bug(int x, int y, int lvl) {
     this.x = x;
     this.y = y;
     this.lvl = lvl;
     health = lvl*20;
     speed = lvl*2;
-    pos = new PVector(x,y);
+    pos = new PVector(x, y);
+    size = 100;
   }
-  void track(PVector target){
+  void track(PVector target) {
     PVector dir = PVector.sub(target, pos);
     if (dir.mag() > 2) {
       dir.normalize();
@@ -18,8 +19,15 @@ class Bug{
       pos.add(dir);
     }
   }
-  void display(){
-    fill(255,100,100);
-    ellipse(pos.x, pos.y, 100,100);
+  void display() {
+    fill(255, 100, 100);
+    ellipse(pos.x, pos.y, size, size);
+  }
+  boolean isOffScreen() {
+    if (y>height+size/2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
