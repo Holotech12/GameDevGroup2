@@ -1,4 +1,4 @@
-//import gifAnimation.*;
+import gifAnimation.*;
 Wizard player;
 ArrayList<Bug> enemies = new ArrayList<Bug>();
 void setup(){
