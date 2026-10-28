@@ -1,5 +1,6 @@
-import gifAnimation.*;
+//import gifAnimation.*;
 class Wizard{
+  PVector pos;
   int x,y,w,h,speed,health,lvl;
   boolean pressed = false, moveLeft, moveRight, moveUp, moveDown;
   Wizard(int x, int y, int lvl){
@@ -8,6 +9,7 @@ class Wizard{
     this.lvl = lvl;
     health = lvl*10 + 50;
     speed = 10;
+    pos = new PVector(x, y);
   }
   void setControls(char k, int code, boolean state) {
     // Letter keys
@@ -19,16 +21,22 @@ class Wizard{
 
   // update coord
   void updatePosition() {
-    if (moveLeft) {x -= speed;}// angle = 270;}
-    if (moveRight){ x += speed;}// angle = 90;}
-    if (moveUp){  y -= speed;}// angle = 0;}
-    if (moveDown){  y += speed;}// angle = 180;}
+    PVector move = new PVector(0,0);
+    if (moveLeft) {pos.x -= speed;}// angle = 270;}
+    if (moveRight){pos.x += speed;}// angle = 90;}
+    if (moveUp){pos.y -= speed;}// angle = 0;}
+    if (moveDown){pos.y += speed;}// angle = 180;}
+    if (move.mag() > 0) {
+      move.normalize();
+      move.mult(speed);
+      pos.add(move);
+    }
   }
 
   void display() {
     imageMode(CENTER);
     fill(100,100,255);
-    rect(100,100,x,y);
+    rect(pos.x,pos.y, 100, 100);
 //    pushMatrix(); // saves current coords
 //    translate(x, y); // move origin to center
 //    rotate(radians(angle));
