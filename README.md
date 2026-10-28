@@ -6,6 +6,9 @@
 
 Our group wants to create a dungeon crawler following a more direct path including puzzles to engage the player along with combat capabilities incorporating timed levels and player based projectiles. The main character is trapped within a dungeon with escape as the main goal in mind. Morality mechanics can also be included. They will fight enemies, defeat puzzles, and create connections with NPCs to reach their final goal. There will be a currency system and health mechanic.
 
+## Pitch Doc
+Sewer wizard is a rogue-like, dungeon crawler game following a wizard as the main character. This wizard has been imprisoned within a dungeon and has to shrink himself and adventure to successfully escape. His journey is filled with learning spells to combat enemies, puzzles to engage the user, gaining levels and improved stats, and new items to customize the user experience. This dungeon is filled with NPCs who will help the player throughout the game and various enemies such as rats, insects, spiders, and other fantastical creatures with each dropping items which help the wizard or main character progress through the game. Each level has a final boss with a custom sprite and moveset. The game consists of about 4-5 levels and ends when the main character finally escapes the dungeon.
+
 ## Core Action
 Adventuring through the dungeon, fighting bosses and various enemies
 
