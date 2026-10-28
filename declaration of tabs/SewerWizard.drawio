@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="qRhO7V5-Penku8rKnSSw">
+    <mxGraphModel dx="1178" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 45px;&quot;&gt;Sewer Wizard&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="325" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-2" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="GameLogic" vertex="1">
+          <mxGeometry height="170" width="160" x="10" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-3" parent="Yl8Z2I6A_TDy1zuoT00M-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Score: int&lt;div&gt;+ Player: p1&lt;/div&gt;&lt;div&gt;+ Enemy[] enemies&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-4" parent="Yl8Z2I6A_TDy1zuoT00M-2" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="16" width="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-5" parent="Yl8Z2I6A_TDy1zuoT00M-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ setup(): void&lt;div&gt;+ draw(): void&lt;/div&gt;&lt;div&gt;+ keyPressed(): void&lt;/div&gt;&lt;div&gt;+ mousePressed(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="84" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Player" vertex="1">
+          <mxGeometry height="170" width="160" x="200" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-15" parent="Yl8Z2I6A_TDy1zuoT00M-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ x: int&lt;div&gt;+ y: int&lt;/div&gt;&lt;div&gt;+ Gif: g1,g2,g3,g4&lt;/div&gt;&lt;div&gt;+ health: int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-16" parent="Yl8Z2I6A_TDy1zuoT00M-14" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="14" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-17" parent="Yl8Z2I6A_TDy1zuoT00M-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ display(): void&lt;div&gt;+ move(): void&lt;/div&gt;&lt;div&gt;+ cast(): void&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;- attacking&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-18" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.194;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="170" y="160.36" as="sourcePoint" />
+            <mxPoint x="199.84000000000003" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-19" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Enemy" vertex="1">
+          <mxGeometry height="140" width="160" x="390" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-20" parent="Yl8Z2I6A_TDy1zuoT00M-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ x: int&lt;div&gt;+ y: int&lt;/div&gt;&lt;div&gt;+ Gif: g1,g2,g3,g4&lt;/div&gt;&lt;div&gt;+ health: int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-21" parent="Yl8Z2I6A_TDy1zuoT00M-19" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="14" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-22" parent="Yl8Z2I6A_TDy1zuoT00M-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ display(): void&lt;div&gt;+ move(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="160" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-24" edge="1" parent="1" source="Yl8Z2I6A_TDy1zuoT00M-15" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" target="Yl8Z2I6A_TDy1zuoT00M-20" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="340" y="250" as="sourcePoint" />
+            <mxPoint x="390" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-25" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="NaN" width="60" x="NaN" y="NaN" as="geometry" />
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-29" edge="1" parent="1" style="endArrow=oval;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endFill=0;startArrow=classic;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="199.5" as="sourcePoint" />
+            <mxPoint x="370" y="199.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yl8Z2I6A_TDy1zuoT00M-30" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.938;entryY=0.524;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" x="0.004" as="geometry">
+            <Array as="points">
+              <mxPoint x="189.92" y="199.5" />
+            </Array>
+            <mxPoint x="189.92" y="199.5" as="sourcePoint" />
+            <mxPoint x="170.00000000000003" y="199.49600000000007" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
