@@ -33,6 +33,7 @@ Enemies attack with projectiles and the player must dodge these while being obst
 Built with Processing. Processing version: 4.0.1 Main sketch and project folder: SewerWizard
 
 Required libraries: gifAnimation, Sound
+<img width="1592" height="856" alt="ClassDiagram" src="https://github.com/user-attachments/assets/4a8d1bde-8238-4020-9cd2-2bd28fffc44a" />
 
 ## Class Diagram
-![ClassDiagram.jpg](<img width="1592" height="856" alt="ClassDiagram" src="https://github.com/user-attachments/assets/db28bf76-587c-467c-9ab5-97360ee51191" />)
+![ClassDiagram.jpg]()
