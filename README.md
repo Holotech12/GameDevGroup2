@@ -11,11 +11,12 @@ Sewer wizard is a rogue-like, dungeon crawler game following a wizard as the mai
 
 ## Core Action
 Adventuring through the dungeon, fighting bosses and various enemies
+The dungeon will be organized as room-based generation with treasure rooms, fighting rooms, 
 
 ## Design theme
 Pseudo-medieval with magic/fantasy elements
 Main character: wizard sprite
-Enemy: oversized rat and insects sprites, spiders, slimes
+Enemy: oversized rat and insects sprites, spiders, slimes, and other classical enemies that are or can feasibly be small
 
 ## Feedback
 Enemies drop useful items for the user to progress. Beating bosses provide useful tools or abilities to the user.
