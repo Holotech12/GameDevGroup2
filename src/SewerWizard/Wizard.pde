@@ -35,6 +35,7 @@ class Wizard{
 
   void display() {
     imageMode(CENTER);
+    rectMode(CENTER);
     fill(100,100,255);
     rect(pos.x,pos.y, 100, 100);
 //    pushMatrix(); // saves current coords
