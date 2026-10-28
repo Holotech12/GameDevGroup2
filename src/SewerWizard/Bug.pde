@@ -1,4 +1,4 @@
-//import gifAnimation.*;
+import gifAnimation.*;
 class Bug{
   PVector pos;
   int x,y,w,h,speed,health,lvl;
