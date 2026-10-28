@@ -35,7 +35,8 @@ Built with Processing. Processing version: 4.0.1 Main sketch and project folder:
 Required libraries: gifAnimation, Sound
 
 ## Class Diagram
-<img width="1592" height="856" alt="ClassDiagram" src="https://github.com/user-attachments/assets/4a8d1bde-8238-4020-9cd2-2bd28fffc44a" />
+<img width="1592" height="856" alt="ClassDiagram" src="https://github.com/user-attachments/assets/1ee71f4c-9744-4b9f-9cc6-d322566a9685" />
+
 
 
 
