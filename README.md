@@ -37,6 +37,7 @@ Required libraries: gifAnimation, Sound
 ## Class Diagram
 ![Class Diagram](images/ClassDiagram.jpg)
 
+
 ## GUI Mockup
 ![GUI Mockup](images/Mockup.jpeg)
 
