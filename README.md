@@ -1,7 +1,5 @@
 # GameDevGroup2
 
-##### ART - Paul Rets
-
 ## Title: Sewer Wizard
 
 ## Overview
@@ -43,5 +41,8 @@ Required libraries: gifAnimation, Sound
 ## GUI Mockup - Torbjorn Harvey
 ![GUI Mockup](images/Mockup.jpeg)
 
+
+## Art - Paul Rets
+[to: Art files](https://github.com/Holotech12/GameDevGroup2/tree/6fd89c91c5ecf974322e49f1337682d8972caf12/images)
 
 
