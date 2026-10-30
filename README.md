@@ -43,7 +43,7 @@ Required libraries: gifAnimation, Sound
 
 
 ## Art - Paul Rets
-[to: Art files]([https://github.com/Holotech12/GameDevGroup2/tree/6fd89c91c5ecf974322e49f1337682d8972caf12/images](https://github.com/Holotech12/GameDevGroup2/tree/6fd89c91c5ecf974322e49f1337682d8972caf12/images/GameImages%20(.PNG)))
+[to: Art files]([https://github.com/Holotech12/GameDevGroup2/tree/6fd89c91c5ecf974322e49f1337682d8972caf12/images])(https://github.com/Holotech12/GameDevGroup2/tree/6fd89c91c5ecf974322e49f1337682d8972caf12/images/GameImages%20(.PNG)))
 ![](images/gameImages/WizardToward.gif)
 
 
