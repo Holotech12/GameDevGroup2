@@ -1,6 +1,6 @@
 # GameDevGroup2
 
-## README - Paul Ret
+##### ART - Paul Rets
 
 ## Title: Sewer Wizard
 
