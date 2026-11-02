@@ -3,14 +3,24 @@ class Wizard{
   PVector pos;
   int x,y,size,speed,health,lvl;
   boolean pressed = false, moveLeft, moveRight, moveUp, moveDown;
-  Wizard(int x, int y, int lvl){
+  Gif wleft, wright, wforward, wback, currentgif;
+  Wizard(int x, int y, int lvl, PApplet parent){
     this.x = x;
     this.y = y;
     this.lvl = lvl;
     health = lvl*10 + 50;
-    speed = 10;
+    speed = 5;
     pos = new PVector(x, y);
+    wleft = new Gif(parent, "WizardLeft.gif");
+    wright = new Gif(parent, "WizardRight.gif");
+    wforward = new Gif(parent, "WizardAway.gif");
+    wback = new Gif(parent, "WizardToward.gif");
     size = 100;
+    currentgif = wforward;
+    //wleft.loop();
+    //wright.loop();
+    //wforward.loop();
+    //wback.loop();
   }
   void setControls(char k, int code, boolean state) {
     // Letter keys
@@ -36,9 +46,11 @@ class Wizard{
 
   void display() {
     imageMode(CENTER);
-    rectMode(CENTER);
-    fill(100,100,255);
-    rect(pos.x,pos.y, size, size);
+    image(currentgif, pos.x,pos.y);
+    if (moveLeft){currentgif = wleft;}
+    if (moveRight){currentgif = wright;}
+    if (moveUp){currentgif = wforward;}
+    if (moveDown){currentgif = wback;}
 //    pushMatrix(); // saves current coords
 //    translate(x, y); // move origin to center
 //    rotate(radians(angle));
