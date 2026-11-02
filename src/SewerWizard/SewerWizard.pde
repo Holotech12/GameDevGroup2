@@ -1,10 +1,10 @@
-//import gifAnimation.*;
+import gifAnimation.*;
 Wizard player;
 ArrayList<Bug> enemies = new ArrayList<Bug>();
 int score = 0;
 void setup() {
   size(800, 600);
-  player = new Wizard(width/2, height/2, 0);
+  player = new Wizard(width/2, height/2, 0, this);
   for (int i =0; i<2; i++) {
     enemies.add(new Bug(int(random(width)), int(random(height)), 1));
   }
