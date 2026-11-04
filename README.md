@@ -54,6 +54,6 @@ SewerWizard/main tab - Olivia
 
 Wizard & Projectile - Karlyn
 
-Item & Bug - Paul
+Item - Paul
 
-Slime & Rat - Torbjorn
+Enemy & Timer - Torbjorn
