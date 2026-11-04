@@ -1,3 +1,5 @@
+//Paul Rets
+
 //import gifAnimation.*;
 class Bug {
   PVector pos;
