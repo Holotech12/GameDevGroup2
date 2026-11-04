@@ -1,7 +1,7 @@
 // Paul Rets
 class Item{
 // Member
-int x,y;
+int x,y, size;
 char a,b,c,d,e,f,g,h,i,j,k;
 PImage p1;
 
@@ -9,12 +9,18 @@ PImage p1;
 Class() {
 this.x=width/2;
 this.y=height/2;
-p1 = loadImage("");
+this.size=64;
+p1 = loadImage("")
 
 }
 
 //member Methods
-void display() {}
+void display() {
+//TODO: replace rectangle with PImage
+//iamge(p1,x,y);
+fill(222,222,222);
+rect(x,y,64,64);
 
+}
 
 }
