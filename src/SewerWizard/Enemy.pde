@@ -1,4 +1,4 @@
-//Paul Rets
+//Torbjorn Harvey
 
 //import gifAnimation.*;
 class Enemy {
