@@ -4,6 +4,8 @@
 Wizard player;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int score = 0;
+int lvl = 1;
+boolean isPaused = false;
 void setup() {
   size(800, 600);
   player = new Wizard(width/2, height/2, 0, this);
@@ -11,24 +13,48 @@ void setup() {
     enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
 }
-
+void startLevel(int currlev) {
+  enemies.clear();
+  if (player == null) {
+    player = new Wizard(width/2, height/2, currlev, this);
+  } else {
+    player.pos.set(width/2, height/2);
+  }
+  int enemyCount =currlev - 1; // Level 1 = 2 bugs, Level 2 = 4 bugs.
+  for (int i = 0; i < enemyCount; i++) {
+    float rx = random(width);
+    float ry = random(height);
+    enemies.add(new Enemy(int(rx), int(ry), currlev));
+  }
+}
 void draw() {
   background(100, 100, 100);
-  player.updatePosition();
-  player.display();
+  if (!isPaused) {
+    player.updatePosition();
+    player.display();
+    player.stayOnScreen();
+    //  // Update and draw all enemies
+    for (int i = enemies.size() - 1; i >= 0; i--) {
+      Enemy e = enemies.get(i);
+      e.track(player.pos);
+      e.display();
 
-  //  // Update and draw all enemies
-  for (int i = 0; i<enemies.size(); i++) {
-    Enemy e = enemies.get(i);
-    e.track(player.pos);
-    e.display();
-    if (player.isHit(e)) {
-      enemies.remove(e);
-      player.health -=10;
-      score += 1;
+      if (player.isHit(e)) {
+        enemies.remove(i);
+        player.health -= 10;
+        score += 1;
+      }
+    }
+    // Check if all enemies in the current level are defeated
+    if (enemies.size() == 0) {
+      lvl++;
+      startLevel(lvl);
     }
   }
   infoPanel();
+  if (isPaused){
+    
+  }
 }
 void keyPressed() {
   if (key == 'a' || key == 'A' || key == 'd'|| key == 'D'||key == 'w'||
