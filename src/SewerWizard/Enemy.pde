@@ -4,7 +4,7 @@
 class Enemy {
   PVector pos;
   int x, y, size, speed, health, lvl;
-PImage p1;
+  Timer cooldown = new Timer(6000);
   Enemy(int x, int y, int lvl) {
     this.x = x;
     this.y = y;
@@ -13,7 +13,6 @@ PImage p1;
     speed = lvl*2;
     pos = new PVector(x, y);
     size = 100;
-pi = loadImage("enemy.png");
   }
   void track(PVector target) {
     PVector dir = PVector.sub(target, pos);
@@ -23,9 +22,20 @@ pi = loadImage("enemy.png");
       pos.add(dir);
     }
   }
+  boolean canAttack(Wizard w){
+    float d = dist(x,y, w.x, w.y);
+    if(d<120 && cooldown.isFinished()){
+      return true;
+    } else { return false;}
+  }
+  void attack() {
+    cooldown.start();
+    
+    
+  }
   void display() {
-image(p1,x,y);
-
+    fill(255, 100, 100);
+    ellipse(pos.x, pos.y, size, size);
   }
   boolean isOffScreen() {
     if (y>height+size/2) {
