@@ -4,6 +4,7 @@
 class Enemy {
   PVector pos;
   int x, y, size, speed, health, lvl;
+PImage p1;
   Enemy(int x, int y, int lvl) {
     this.x = x;
     this.y = y;
@@ -12,6 +13,7 @@ class Enemy {
     speed = lvl*2;
     pos = new PVector(x, y);
     size = 100;
+pi = loadImage("enemy.png");
   }
   void track(PVector target) {
     PVector dir = PVector.sub(target, pos);
@@ -22,8 +24,8 @@ class Enemy {
     }
   }
   void display() {
-    fill(255, 100, 100);
-    ellipse(pos.x, pos.y, size, size);
+image(p1,x,y);
+
   }
   boolean isOffScreen() {
     if (y>height+size/2) {
