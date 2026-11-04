@@ -1,3 +1,4 @@
+// Karlyn Tran
 import gifAnimation.*;
 class Wizard{
   PVector pos;
