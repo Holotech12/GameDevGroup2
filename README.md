@@ -49,4 +49,8 @@ Required libraries: gifAnimation, Sound
 
 ![](images/gameImages/WizardToward.gif)
 
-
+## Class Assignment
+SewerWizard/main tab - Olivia
+Wizard & Projectile - Karlyn
+Item & Bug - Paul
+Slime & Rat - Torbjorn
