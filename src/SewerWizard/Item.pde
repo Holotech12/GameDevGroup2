@@ -10,7 +10,7 @@ Class() {
 this.x=width/2;
 this.y=height/2;
 this.size=64;
-p1 = loadImage("")
+p1 = loadImage("");
 
 }
 
