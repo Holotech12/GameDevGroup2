@@ -17,9 +17,7 @@ void startLevel(int currlev) {
   enemies.clear();
   if (player == null) {
     player = new Wizard(width/2, height/2, currlev, this);
-  } else {
-    player.pos.set(width/2, height/2);
-  }
+  } 
   int enemyCount =currlev - 1; // Level 1 = 2 bugs, Level 2 = 4 bugs.
   for (int i = 0; i < enemyCount; i++) {
     float rx = random(width);
