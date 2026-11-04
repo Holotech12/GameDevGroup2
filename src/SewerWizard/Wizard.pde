@@ -64,7 +64,7 @@ class Wizard{
       image(freeze[freezeFrame], pos.x, pos.y);
     }
   }
-  boolean isHit(Bug c) {
+  boolean isHit(Enemy c) {
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
     return distance < size;
   }
