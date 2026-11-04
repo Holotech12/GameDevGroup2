@@ -1,4 +1,4 @@
-//Olivia 
+//Olivia Wang
 
 import gifAnimation.*;
 Wizard player;
