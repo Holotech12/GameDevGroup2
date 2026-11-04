@@ -1,5 +1,3 @@
-//Karlyn Tran
-
 import gifAnimation.*;
 class Projectile{
   int x, y, speed;
@@ -32,10 +30,10 @@ class Projectile{
       return false;
     }
   }
-  //boolean isHit(Bug b){
-  //  float d = dist(x,y, b.x, b.y);
-  //  if(d<30){
-  //    return true;
-  //  }else{ return false;}
-  //}
+  boolean isHit(Enemy e){
+    float d = dist(x,y, e.x, e.y);
+    if(d<30){
+      return true;
+    }else{ return false;}
+  }
 }
