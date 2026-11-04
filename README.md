@@ -37,7 +37,7 @@ Built with Processing. Processing version: 4.0.1 Main sketch and project folder:
 Required libraries: gifAnimation, Sound
 
 ## Class Diagram - Olivia Wang
-![Class Diagram](images/ClassDiagram.jpg)
+![Class Diagram](images/ClassDiagram.jpeg)
 
 
 ## GUI Mockup - Torbjorn Harvey
