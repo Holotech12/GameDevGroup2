@@ -51,6 +51,9 @@ Required libraries: gifAnimation, Sound
 
 ## Class Assignment
 SewerWizard/main tab - Olivia
+
 Wizard & Projectile - Karlyn
+
 Item & Bug - Paul
+
 Slime & Rat - Torbjorn
