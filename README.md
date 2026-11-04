@@ -1,6 +1,6 @@
 # GameDevGroup2
 
-#### Made By: Karlyn, Olivia, Harvey, Paul
+#### Made By: Karlyn, Olivia, Torbjorn, Paul
 
 ## Title: Sewer Wizard
 
