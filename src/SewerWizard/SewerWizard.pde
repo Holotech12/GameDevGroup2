@@ -1,3 +1,5 @@
+//Olivia 
+
 import gifAnimation.*;
 Wizard player;
 ArrayList<Bug> enemies = new ArrayList<Bug>();
