@@ -1,3 +1,4 @@
+// Karlyn Tran
 import gifAnimation.*;
 class Projectile{
   int x, y, speed;
