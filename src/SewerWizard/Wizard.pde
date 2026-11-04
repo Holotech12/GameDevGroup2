@@ -1,8 +1,9 @@
-//Karlyn Tran
-
+// Karlyn Tran
 import gifAnimation.*;
 class Wizard{
   PVector pos;
+  int freezeFrame;
+  PImage [] freeze = new PImage[4];
   int x,y,size,speed,health,lvl;
   boolean pressed = false, moveLeft, moveRight, moveUp, moveDown;
   Gif wleft, wright, wforward, wback, currentgif;
@@ -17,6 +18,11 @@ class Wizard{
     wright = new Gif(parent, "wizardRight.gif");
     wforward = new Gif(parent, "wizardAway.gif");
     wback = new Gif(parent, "wizardToward.gif");
+    freeze[0] = loadImage("wl.png");
+    freeze[1] = loadImage("wr.png");
+    freeze[2] = loadImage("wa.png");
+    freeze[3] = loadImage("wt.png");
+    freezeFrame = 2;
     size = 100;
     currentgif = wforward;
     wleft.loop();
@@ -48,17 +54,15 @@ class Wizard{
 
   void display() {
     imageMode(CENTER);
-    image(currentgif, pos.x,pos.y);
-    if (moveLeft){currentgif = wleft;}
-    if (moveRight){currentgif = wright;}
-    if (moveUp){currentgif = wforward;}
-    if (moveDown){currentgif = wback;}
-//    pushMatrix(); // saves current coords
-//    translate(x, y); // move origin to center
-//    rotate(radians(angle));
-//    image(wizard, x, y);
-//    popMatrix();
-// these notes are so that if the user hits a different direction the player image rotates
+    if (moveLeft){currentgif = wleft; freezeFrame = 0;}
+    if (moveRight){currentgif = wright; freezeFrame = 1;}
+    if (moveUp){currentgif = wforward; freezeFrame = 2;}
+    if (moveDown){currentgif = wback; freezeFrame = 3;}
+    if (pressed){
+      image(currentgif, pos.x,pos.y);
+    } else {
+      image(freeze[freezeFrame], pos.x, pos.y);
+    }
   }
   boolean isHit(Enemy c) {
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
