@@ -2,13 +2,13 @@
 
 //import gifAnimation.*;
 Wizard player;
-ArrayList<Bug> enemies = new ArrayList<Bug>();
+ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int score = 0;
 void setup() {
   size(800, 600);
   player = new Wizard(width/2, height/2, 0, this);
   for (int i =0; i<2; i++) {
-    enemies.add(new Bug(int(random(width)), int(random(height)), 1));
+    enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
 }
 
@@ -19,7 +19,7 @@ void draw() {
 
   //  // Update and draw all enemies
   for (int i = 0; i<enemies.size(); i++) {
-    Bug e = enemies.get(i);
+    Enemy e = enemies.get(i);
     e.track(player.pos);
     e.display();
     if (player.isHit(e)) {
