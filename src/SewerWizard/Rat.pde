@@ -1,3 +1,5 @@
+//Torbjorn Harvey
+
 //import gifAnimation.*;
 class Rat {
   PVector pos;
