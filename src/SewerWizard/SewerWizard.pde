@@ -1,6 +1,6 @@
 //Olivia Wang
 
-import gifAnimation.*;
+//import gifAnimation.*;
 Wizard player;
 ArrayList<Bug> enemies = new ArrayList<Bug>();
 int score = 0;
@@ -31,10 +31,20 @@ void draw() {
   infoPanel();
 }
 void keyPressed() {
+  if (key == 'a' || key == 'A' || key == 'd'|| key == 'D'||key == 'w'||
+  key == 'W'||key == 's'|| key == 'S'){
+    player.pressed = true;
+  }
+  if (key == CODED){
+    if (keyCode == DOWN || keyCode == LEFT || keyCode == RIGHT || keyCode == UP){
+      player.pressed = true;
+    }
+  }
   player.setControls(key, keyCode, true);
 }
 
 void keyReleased() {
+  player.pressed = false;
   player.setControls(key, keyCode, false);
 }
 void infoPanel() {
