@@ -9,7 +9,7 @@ PImage p1;
 Class() {
 this.x=width/2;
 this.y=height/2;
-p1 = loadImage("")
+p1 = loadImage("");
 
 }
 
