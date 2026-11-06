@@ -1,6 +1,6 @@
 //Olivia Wang
 
-//import gifAnimation.*;
+import gifAnimation.*;
 Wizard player;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 ArrayList<Projectile> playerProj = new ArrayList<Projectile>();
@@ -46,11 +46,11 @@ void mousePressed(){
     playery +=60;
   }
   if (clickCount == 1){
-    playerProj.add(new Projectile(playerx, playery, 5,player.freezeFrame));
+    playerProj.add(new Projectile(playerx, playery, 5,player.freezeFrame, "player"));
     wProj.start();
   }
   if (wProj.isFinished()){
-    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame));
+    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player"));
     wProj.start();
   }
 }
