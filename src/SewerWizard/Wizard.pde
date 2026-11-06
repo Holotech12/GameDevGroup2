@@ -4,8 +4,10 @@ class Wizard{
   PVector pos;
   int freezeFrame;
   PImage [] freeze = new PImage[4];
+  PImage [] castFrames = {loadImage("wlc.png"), loadImage("wrc.png"),
+  loadImage("wac.png"), loadImage("wtc.png")};
   int x,y,size,speed,health,lvl;
-  boolean pressed = false, moveLeft, moveRight, moveUp, moveDown;
+  boolean pressed = false, moveLeft, moveRight, moveUp, moveDown, isCasting;
   Gif wleft, wright, wforward, wback, currentgif;
   Wizard(int x, int y, int lvl, PApplet parent){
     this.x = x;
@@ -58,6 +60,7 @@ class Wizard{
     if (moveRight){currentgif = wright; freezeFrame = 1;}
     if (moveUp){currentgif = wforward; freezeFrame = 2;}
     if (moveDown){currentgif = wback; freezeFrame = 3;}
+    castFrame = freezeFrame;
     if (pressed){
       image(currentgif, pos.x,pos.y);
     }
