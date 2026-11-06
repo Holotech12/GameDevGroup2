@@ -68,6 +68,12 @@ class Wizard{
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
     return distance < size;
   }
+  boolean isItem(item t){
+    float d = dist(x,y, t.pos.x, t.pos.y);
+    if(d<30){
+      return true;
+    }else{ return false;}
+  }
   void stayOnScreen() {
     if (pos.y < 0) {
       pos.y=0;
