@@ -23,7 +23,7 @@ class Wizard{
     freeze[2] = loadImage("wa.png");
     freeze[3] = loadImage("wt.png");
     freezeFrame = 2;
-    size = 100;
+    size = 70;
     currentgif = wforward;
     wleft.loop();
     wright.loop();
