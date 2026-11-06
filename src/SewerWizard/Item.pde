@@ -14,9 +14,8 @@ class Item{
   
   //member Methods
   void display() {
-    //TODO: replace rectangle with PImage
+    //TODO: replace rectangle with animation
     image(p1,x,y);
-    //fill(222,222,222);
-    //rect(x,y,64,64);
+
   }
 }
