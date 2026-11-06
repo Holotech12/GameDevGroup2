@@ -3,18 +3,20 @@
 import gifAnimation.*;
 class Enemy {
   PVector pos;
-  int x, y, size, speed, health, lvl;
+  int x, y, size, speed, health, lvl, dmg;
   PImage skull;
-  Timer cooldown = new Timer(6000);
+  Timer cooldown = new Timer(900);
   Enemy(int x, int y, int lvl) {
     this.x = x;
     this.y = y;
     this.lvl = lvl;
     health = lvl*20;
-    speed = lvl*2;
+    speed = lvl;
     pos = new PVector(x, y);
     size = 100;
     skull = loadImage("enemy.png");
+    cooldown.start();
+    dmg = lvl*3;
   }
   void track(PVector target) {
     PVector dir = PVector.sub(target, pos);
@@ -24,15 +26,17 @@ class Enemy {
       pos.add(dir);
     }
   }
-  boolean canAttack(Wizard w){
-    float d = dist(x,y, w.x, w.y);
-    if(d<120 && cooldown.isFinished()){
+  boolean canAttack(Wizard w) {
+    float d = dist(x, y, w.x, w.y);
+    if (d<=300 && cooldown.isFinished()) {
       return true;
-    } else { return false;}
+    } else {
+      return false;
+    }
   }
   void attack(Wizard w) {
+    w.health -= dmg;
     cooldown.start();
-    w.health -= lvl*5;
   }
   void display() {
     imageMode(CENTER);
