@@ -11,7 +11,7 @@ class Enemy {
     this.y = y;
     this.lvl = lvl;
     health = lvl*20;
-    speed = lvl;
+    speed = lvl/2;
     pos = new PVector(x, y);
     size = 100;
     skull = loadImage("enemy.png");
