@@ -60,15 +60,22 @@ class Wizard{
     if (moveDown){currentgif = wback; freezeFrame = 3;}
     if (pressed){
       image(currentgif, pos.x,pos.y);
-    } else {
+    }
+    if (!pressed && isCasting == false) {
       image(freeze[freezeFrame], pos.x, pos.y);
+    }
+    if (isCasting){
+      image(castFrames[castFrame], pos.x, pos.y);
+    }
+    if (castCount.isFinished()) {
+      isCasting = false;
     }
   }
   boolean isHit(Enemy c) {
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
     return distance < size;
   }
-  boolean isItem(item t){
+  boolean isItem(Item t){
     float d = dist(x,y, t.pos.x, t.pos.y);
     if(d<30){
       return true;
