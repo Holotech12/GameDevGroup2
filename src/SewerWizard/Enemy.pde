@@ -30,8 +30,9 @@ class Enemy {
       return true;
     } else { return false;}
   }
-  void attack() {
+  void attack(Wizard w) {
     cooldown.start();
+    w.health -= lvl*5;
   }
   void display() {
     imageMode(CENTER);
