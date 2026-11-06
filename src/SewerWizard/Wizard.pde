@@ -79,7 +79,7 @@ class Wizard{
     return distance < size;
   }
   boolean isItem(Item t){
-    float d = dist(x,y, t.pos.x, t.pos.y);
+    float d = dist(x,y, t.x, t.y);
     if(d<30){
       return true;
     }else{ return false;}
