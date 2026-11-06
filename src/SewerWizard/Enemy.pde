@@ -1,9 +1,10 @@
 //Torbjorn Harvey
 
-//import gifAnimation.*;
+import gifAnimation.*;
 class Enemy {
   PVector pos;
   int x, y, size, speed, health, lvl;
+  PImage skull;
   Timer cooldown = new Timer(6000);
   Enemy(int x, int y, int lvl) {
     this.x = x;
@@ -13,6 +14,7 @@ class Enemy {
     speed = lvl*2;
     pos = new PVector(x, y);
     size = 100;
+    skull = loadImage("enemy.png");
   }
   void track(PVector target) {
     PVector dir = PVector.sub(target, pos);
@@ -30,12 +32,12 @@ class Enemy {
   }
   void attack() {
     cooldown.start();
-    
-    
   }
   void display() {
-    fill(255, 100, 100);
-    ellipse(pos.x, pos.y, size, size);
+    imageMode(CENTER);
+    image(skull, pos.x, pos.y);
+    //fill(255, 100, 100);
+    //ellipse(pos.x, pos.y, size, size);
   }
   boolean isOffScreen() {
     if (y>height+size/2) {
