@@ -2,7 +2,7 @@
 import gifAnimation.*;
 class Wizard{
   PVector pos;
-  int freezeFrame;
+  int freezeFrame, castFrame;
   PImage [] freeze = new PImage[4];
   PImage [] castFrames = {loadImage("wlc.png"), loadImage("wrc.png"),
   loadImage("wac.png"), loadImage("wtc.png")};
