@@ -4,6 +4,7 @@ import gifAnimation.*;
 Wizard player;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 ArrayList<Projectile> playerProj = new ArrayList<Projectile>();
+ArrayList<Item> items = new ArrayList<Item>();
 int score = 0, clickCount = 0;
 int lvl = 1;
 boolean isPaused = false;
