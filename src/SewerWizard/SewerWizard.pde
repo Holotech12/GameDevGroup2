@@ -43,6 +43,7 @@ void mousePressed() {
   float playerx, playery;
   playerx = player.pos.x;
   playery = player.pos.y;
+  player.isCasting = true;
   clickCount ++;
   castCount.start();
   if (player.freezeFrame == 0) {
