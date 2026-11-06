@@ -27,8 +27,9 @@ class Enemy {
     }
   }
   boolean canAttack(Wizard w) {
-    float d = dist(x, y, w.x, w.y);
-    if (d<=300 && cooldown.isFinished()) {
+    float d = dist(pos.x, pos.y, w.pos.x, w.pos.y);
+    println("distance from player: " + d);
+    if (d<=250 && cooldown.isFinished()) {
       return true;
     } else {
       return false;
