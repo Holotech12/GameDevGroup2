@@ -74,6 +74,10 @@ void draw() {
     for (int i = enemies.size() - 1; i >= 0; i--) {
       Enemy e = enemies.get(i);
       e.track(player.pos);
+      if (e.canAttack(player) == true) {
+        e.attack(player);
+        println("attacked for " + e.dmg + " damage");
+      }
       if (player.isHit(e)) {
         enemies.remove(i);
         player.health -= 10;
