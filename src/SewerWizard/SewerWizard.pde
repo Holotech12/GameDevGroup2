@@ -8,11 +8,12 @@ int score = 0, clickCount = 0;
 int lvl = 1;
 boolean isPaused = false;
 boolean transition = false;
-Timer wProj;
+Timer wProj, castCount;
 void setup() {
   size(800, 600);
   player = new Wizard(width/2, height/2, 0, this);
   wProj = new Timer(750);
+  castCount = new Timer(100);
   for (int i =0; i<2; i++) {
     enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
@@ -43,6 +44,7 @@ void mousePressed() {
   playerx = player.pos.x;
   playery = player.pos.y;
   clickCount ++;
+  castCount.start();
   if (player.freezeFrame == 0) {
     playerx -=60;
   }
@@ -56,11 +58,11 @@ void mousePressed() {
     playery +=60;
   }
   if (clickCount == 1) {
-    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame));
+    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player"));
     wProj.start();
   }
   if (wProj.isFinished()) {
-    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame));
+    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player"));
     wProj.start();
   }
 }
