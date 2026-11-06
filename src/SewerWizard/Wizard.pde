@@ -14,10 +14,10 @@ class Wizard{
     health = lvl*10 + 50;
     speed = 5;
     pos = new PVector(x, y);
-    wleft = new Gif(parent, "wizardLeft.gif");
-    wright = new Gif(parent, "wizardRight.gif");
-    wforward = new Gif(parent, "wizardAway.gif");
-    wback = new Gif(parent, "wizardToward.gif");
+    wleft = new Gif(parent, "WizardLeft.gif");
+    wright = new Gif(parent, "WizardRight.gif");
+    wforward = new Gif(parent, "WizardAway.gif");
+    wback = new Gif(parent, "WizardToward.gif");
     freeze[0] = loadImage("wl.png");
     freeze[1] = loadImage("wr.png");
     freeze[2] = loadImage("wa.png");
