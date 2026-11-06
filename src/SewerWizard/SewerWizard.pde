@@ -65,6 +65,9 @@ void draw() {
       Enemy e = enemies.get(i);
       e.track(player.pos);
       e.display();
+      if (e.canAttack(player) == true) {
+        e.attack(player);
+      }
       if (player.isHit(e)) {
         enemies.remove(i);
         player.health -= 10;
