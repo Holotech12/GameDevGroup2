@@ -59,11 +59,11 @@ void mousePressed() {
     playery +=60;
   }
   if (clickCount == 1) {
-    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player"));
+    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player", this));
     wProj.start();
   }
   if (wProj.isFinished()) {
-    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player"));
+    playerProj.add(new Projectile(playerx, playery, 5, player.freezeFrame, "player", this));
     wProj.start();
   }
 }
