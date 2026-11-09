@@ -68,11 +68,6 @@ void mousePressed() {
   }
 }
 
-
-
-
-
-
 void draw() {
   background(100, 100, 100);
   if (!isPaused && !transition) {
