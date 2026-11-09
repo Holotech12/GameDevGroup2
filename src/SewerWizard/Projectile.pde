@@ -4,26 +4,26 @@ class Projectile{
   float x, y;
   int speed, frame;
   String type;
-  //Gif plasma, eplasma;
-  Projectile(float x, float y, int speed, int frame, String type){
+  Gif plasma;
+  Projectile(float x, float y, int speed, int frame, String type, PApplet parent){
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.frame = frame;
     this.type = type;
-    //if (type == 1){
-    //  plasma = new Gif(parent, "projectile.gif");
-    //} else{
-    //  plasma = new Gif(parent, "eprojectile.gif");
-    //}
-    //plasma.loop();
+    if (type == "player"){
+      plasma = new Gif(parent, "wizproj.gif");
+    } else{
+      plasma = new Gif(parent, "enemyproj.gif");
+    }
+    plasma.loop();
   }
   void display(){
     imageMode(CENTER);
     rectMode(CENTER);
-    fill(255, 255,100);
-    rect(x,y, 50, 50);
-    //image(plasma,x,y);
+    //fill(255, 255,100);
+    //rect(x,y, 50, 50);
+    image(plasma,x,y);
   }
   void move(){
     //if (player.freezeFrame == 0){
@@ -39,18 +39,10 @@ class Projectile{
     //  y +=speed;
     //}
     if (type == "player"){
-      if (frame == 0){
-        x -=speed;
-      }
-      if (frame == 1){
-        x +=speed;
-      }
-      if (frame == 2){
-        y -=speed;
-      }
-      if (frame ==3){
-        y +=speed;
-      }
+      if (frame == 0){x -=speed;}
+      if (frame == 1){x +=speed;}
+      if (frame == 2){y -=speed;}
+      if (frame == 3){y +=speed;}
     }
     if (type == "enemy"){
       if (frame == 0){x -=speed;}
