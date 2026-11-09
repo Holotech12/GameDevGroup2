@@ -48,7 +48,7 @@ class Enemy {
   //}
   void attack(){
     firetime = millis();
-    enemyProj.add(new Projectile(pos.x, pos.y, 5, int(random(0,4)), "enemy"));
+    enemyProj.add(new Projectile(pos.x, pos.y, 5, int(random(0,4)), "enemy", SewerWizard.this));
     cooldown.start();
   }
   void display() {
