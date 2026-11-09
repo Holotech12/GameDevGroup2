@@ -52,6 +52,13 @@ class Projectile{
         y +=speed;
       }
     }
+    if (type == "enemy"){
+      if (frame == 0){x -=speed;}
+      if (frame == 1){x +=speed;}
+      if (frame == 2){y -=speed;}
+      if (frame == 3){y +=speed;}
+      
+    }
   }
   boolean isOffScreen(){
     if (y>height+50){
@@ -62,8 +69,8 @@ class Projectile{
   }
   boolean isHit(Enemy e){
     float d = dist(x,y, e.pos.x, e.pos.y);
-    if(d<30){
+    if(d<30 && type != "enemy"){
       return true;
-    }else{ return false;}
+    }else{return false;}
   }
 }
