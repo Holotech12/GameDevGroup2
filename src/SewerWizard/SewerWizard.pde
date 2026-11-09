@@ -67,6 +67,12 @@ void mousePressed() {
     wProj.start();
   }
 }
+
+
+
+
+
+
 void draw() {
   background(100, 100, 100);
   if (!isPaused && !transition) {
@@ -77,9 +83,10 @@ void draw() {
     for (int i = enemies.size() - 1; i >= 0; i--) {
       Enemy e = enemies.get(i);
       e.track(player.pos);
+      //e.attack();
       if (e.canAttack(player) == true) {
-        e.attack(player);
-        println("attacked for " + e.dmg + " damage");
+        e.attack();
+      //  println("attacked for " + e.dmg + " damage");
       }
       if (player.isHit(e)) {
         enemies.remove(i);
@@ -125,6 +132,7 @@ void draw() {
 void levelScreen() {
   fill(0, 0, 0, 200);
   rect(0, 0, width, height);
+
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
@@ -136,6 +144,7 @@ void levelScreen() {
 void pauseScreen() {
   fill(0, 0, 0, 180);
   rect(0, 0, width, height);
+
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
@@ -179,4 +188,3 @@ void infoPanel() {
   text("Score: " + score, 20, 35);
   text("Health: " + player.health, 300, 35);
 }
-
