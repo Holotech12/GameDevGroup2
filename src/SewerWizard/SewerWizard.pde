@@ -125,7 +125,6 @@ void draw() {
 void levelScreen() {
   fill(0, 0, 0, 200);
   rect(0, 0, width, height);
-
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
@@ -137,7 +136,6 @@ void levelScreen() {
 void pauseScreen() {
   fill(0, 0, 0, 180);
   rect(0, 0, width, height);
-
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
