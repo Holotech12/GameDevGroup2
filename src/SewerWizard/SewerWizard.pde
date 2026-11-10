@@ -6,7 +6,7 @@ ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 ArrayList<Projectile> playerProj = new ArrayList<Projectile>();
 int score = 0, clickCount = 0, hitTime;
 int lvl = 1;
-boolean isPaused = false;
+boolean isPaused = false, startScreen = true;
 boolean transition = false;
 Timer wProj, castCount;
 Item item;
@@ -21,7 +21,8 @@ void setup() {
   proj = new Projectile(200, 200, 5, 1, "player", this);
   item = new Item(100, 100);
   bg = loadImage("gamebackground.png");
-  startscreen = new Gif(this,"startscreen.gif");
+  startscreen = new Gif(this, "startscreen.gif");
+  startscreen.loop();
   for (int i =0; i<2; i++) {
     enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
@@ -77,62 +78,72 @@ void mousePressed() {
 }
 
 void draw() {
-  background(bg);
-  if (!isPaused && !transition) {
-    player.updatePosition();
-    player.display();
-    item.display();
-    proj.display();
-    player.stayOnScreen();
-    //  // Update and draw all enemies
-    for (int i = enemies.size() - 1; i >= 0; i--) {
-      Enemy e = enemies.get(i);
-      e.track(player.pos);
-      //e.attack();
-      if (e.canAttack(player) == true) {
-        e.dash(player);
-        //e.fire();
-        //  println("attacked for " + e.dmg + " damage");
-      }
-      if (player.isHit(e) && millis() - hitTime >= 1000) {
-        hitTime = millis();
-        player.health -= e.dmg;
-      }
-      for (int j = 0; j<playerProj.size(); j ++) {
-        Projectile p = playerProj.get(j);
-        if (p.isHit(e)) {
-          score ++;
-          playerProj.remove(p);
+  if (startScreen) {
+    background(0);
+    image(startscreen, 0, 0, width, height);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    fill(255);
+    text("Press any key to start", width/2, height/2+100);
+  } else {
+    background(bg);
+    if (!isPaused && !transition) {
+      player.updatePosition();
+      player.display();
+      item.display();
+      proj.display();
+      player.stayOnScreen();
+      //  // Update and draw all enemies
+      for (int i = enemies.size() - 1; i >= 0; i--) {
+        Enemy e = enemies.get(i);
+        e.track(player.pos);
+        //e.attack();
+        if (e.canAttack(player) == true) {
+          e.dash(player);
+          //e.fire();
+          //  println("attacked for " + e.dmg + " damage");
+        }
+        if (player.isHit(e) && millis() - hitTime >= 1000) {
           enemies.remove(e);
+          hitTime = millis();
+          player.health -= e.dmg;
+        }
+        for (int j = 0; j<playerProj.size(); j ++) {
+          Projectile p = playerProj.get(j);
+          if (p.isHit(e)) {
+            score ++;
+            playerProj.remove(p);
+            enemies.remove(e);
+          }
         }
       }
-    }
-    //projectiles
-    for (int j =0; j <playerProj.size(); j++) {
-      Projectile p = playerProj.get(j);
-      if (p.isOffScreen()) {
-        playerProj.remove(p);
+      //projectiles
+      for (int j =0; j <playerProj.size(); j++) {
+        Projectile p = playerProj.get(j);
+        if (p.isOffScreen()) {
+          playerProj.remove(p);
+        }
+        p.move();
       }
-      p.move();
+      // Check if all enemies in the current level are defeated
+      if (enemies.size() == 0) {
+        lvl++;
+        startLevel(lvl);
+      }
     }
-    // Check if all enemies in the current level are defeated
-    if (enemies.size() == 0) {
-      lvl++;
-      startLevel(lvl);
+    player.display();
+    for (Enemy e : enemies) {
+      e.display();
     }
-  }
-  player.display();
-  for (Enemy e : enemies) {
-    e.display();
-  }
-  for (Projectile p : playerProj) {
-    p.display();
-  }
-  infoPanel();
-  if (transition) {
-    levelScreen();
-  } else if (isPaused) {
-    pauseScreen();
+    for (Projectile p : playerProj) {
+      p.display();
+    }
+    infoPanel();
+    if (transition) {
+      levelScreen();
+    } else if (isPaused) {
+      pauseScreen();
+    }
   }
 }
 void levelScreen() {
@@ -157,6 +168,10 @@ void pauseScreen() {
   text("Press 'P' to Resume", width/2, height/2 + 30);
 }
 void keyPressed() {
+  if (startScreen){
+    startScreen = false;
+    startscreen.stop();
+  }
   if (transition && key == ' ') {
     transition = false;
     return;
