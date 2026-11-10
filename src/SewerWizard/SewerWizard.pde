@@ -4,7 +4,7 @@
 Wizard player;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 ArrayList<Projectile> playerProj = new ArrayList<Projectile>();
-int score = 0, clickCount = 0;
+int score = 0, clickCount = 0, hitTime;
 int lvl = 1;
 boolean isPaused = false;
 boolean transition = false;
@@ -89,12 +89,14 @@ void draw() {
         e.attack(player);
         //  println("attacked for " + e.dmg + " damage");
       }
-      if (player.isHit(e)) {
+      if (player.isHit(e) && millis() - hitTime >= 1000) {
+        hitTime = millis();
         player.health -= e.dmg;
       }
       for (int j = 0; j<playerProj.size(); j ++) {
         Projectile p = playerProj.get(j);
         if (p.isHit(e)) {
+          score ++;
           playerProj.remove(p);
           enemies.remove(e);
         }
