@@ -90,7 +90,8 @@ void draw() {
       e.track(player.pos);
       //e.attack();
       if (e.canAttack(player) == true) {
-        e.attack(player);
+        e.dash(player);
+        //e.fire();
         //  println("attacked for " + e.dmg + " damage");
       }
       if (player.isHit(e) && millis() - hitTime >= 1000) {
