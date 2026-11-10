@@ -90,9 +90,7 @@ void draw() {
         //  println("attacked for " + e.dmg + " damage");
       }
       if (player.isHit(e)) {
-        enemies.remove(i);
-        player.health -= 10;
-        score += 1;
+        player.health -= e.dmg;
       }
       for (int j = 0; j<playerProj.size(); j ++) {
         Projectile p = playerProj.get(j);
