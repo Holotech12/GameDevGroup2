@@ -80,7 +80,7 @@ void draw() {
       e.track(player.pos);
       //e.attack();
       if (e.canAttack(player) == true) {
-        e.attack();
+        e.attack(player);
       //  println("attacked for " + e.dmg + " damage");
       }
       if (player.isHit(e)) {
