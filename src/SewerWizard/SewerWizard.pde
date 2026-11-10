@@ -9,11 +9,15 @@ int lvl = 1;
 boolean isPaused = false;
 boolean transition = false;
 Timer wProj, castCount;
+Item item;
+Projectile proj;
 void setup() {
   size(800, 600);
   player = new Wizard(width/2, height/2, 0, this);
   wProj = new Timer(750);
   castCount = new Timer(100);
+  proj = new Projectile(200, 200, 5, 1, "player", this);
+  item = new Item(100, 100);
   for (int i =0; i<2; i++) {
     enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
@@ -73,6 +77,8 @@ void draw() {
   if (!isPaused && !transition) {
     player.updatePosition();
     player.display();
+    item.display();
+    proj.display();
     player.stayOnScreen();
     //  // Update and draw all enemies
     for (int i = enemies.size() - 1; i >= 0; i--) {
@@ -81,7 +87,7 @@ void draw() {
       //e.attack();
       if (e.canAttack(player) == true) {
         e.attack(player);
-      //  println("attacked for " + e.dmg + " damage");
+        //  println("attacked for " + e.dmg + " damage");
       }
       if (player.isHit(e)) {
         enemies.remove(i);
@@ -127,7 +133,6 @@ void draw() {
 void levelScreen() {
   fill(0, 0, 0, 200);
   rect(0, 0, width, height);
-
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
@@ -139,7 +144,6 @@ void levelScreen() {
 void pauseScreen() {
   fill(0, 0, 0, 180);
   rect(0, 0, width, height);
-
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(48);
