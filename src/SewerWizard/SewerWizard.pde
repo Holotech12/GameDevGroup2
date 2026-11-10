@@ -1,6 +1,6 @@
 //Olivia Wang
 
-//import gifAnimation.*;
+import gifAnimation.*;
 Wizard player;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 ArrayList<Projectile> playerProj = new ArrayList<Projectile>();
@@ -10,6 +10,8 @@ boolean isPaused = false;
 boolean transition = false;
 Timer wProj, castCount;
 Item item;
+PImage bg;
+Gif startscreen;
 Projectile proj;
 void setup() {
   size(800, 600);
@@ -18,6 +20,8 @@ void setup() {
   castCount = new Timer(100);
   proj = new Projectile(200, 200, 5, 1, "player", this);
   item = new Item(100, 100);
+  bg = loadImage("gamebackground.png");
+  startscreen = new Gif(this,"startscreen.gif");
   for (int i =0; i<2; i++) {
     enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
   }
@@ -73,7 +77,7 @@ void mousePressed() {
 }
 
 void draw() {
-  background(100, 100, 100);
+  background(bg);
   if (!isPaused && !transition) {
     player.updatePosition();
     player.display();
