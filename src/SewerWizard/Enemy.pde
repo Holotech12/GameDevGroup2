@@ -8,20 +8,7 @@ class Enemy {
   ArrayList<Projectile> enemyProj = new ArrayList<Projectile>();
   PImage skull;
   Timer cooldown = new Timer(1300);
-  Enemy(int x, int y, int lvl) {
-    this.x = x;
-    this.y = y;
-    this.lvl = lvl;
-    health = lvl*20;
-    speed = lvl/2;
-    pos = new PVector(x, y);
-    size = 100;
-    skull = loadImage("enemy.png");
-    cooldown.start();
-    dmg = lvl*2;
-    dashSpeed = speed*3;
-    dashFrms = 0;
-    dashMaxFrms = 30;
+  Enemy() {
   }
   void track(PVector target) {
     if (isDashing) {
@@ -51,15 +38,8 @@ class Enemy {
       return false;
     }
   }
-  //void attack(Wizard w) {
-  //  w.health -= dmg;
-  //  cooldown.start();
-  //}
-  void dash(Wizard w) {
-    dashDir = PVector.sub(w.pos, pos);
-    dashDir.normalize();
-    isDashing = true;
-    dashFrms = 0;
+  void attack(Wizard w) {
+    w.health -= dmg;
     cooldown.start();
   }
   void fire(){
@@ -92,3 +72,31 @@ class Enemy {
     }
   }
 }
+
+class Spider extends Enemy {
+  Spider(int x, int y, int lvl) {
+    this.x = x;
+    this.y = y;
+    this.lvl = lvl;
+    health = lvl*20;
+    speed = lvl/2;
+    pos = new PVector(x, y);
+    size = 100;
+    skull = loadImage("enemy.png");
+    cooldown.start();
+    dmg = lvl*2;
+    dashSpeed = speed*3;
+    dashFrms = 0;
+    dashMaxFrms = 30;
+  }
+  
+  @Override
+  void attack(Wizard w) {
+    dashDir = PVector.sub(w.pos, pos);
+    dashDir.normalize();
+    isDashing = true;
+    dashFrms = 0;
+    cooldown.start();
+  }
+}
+
