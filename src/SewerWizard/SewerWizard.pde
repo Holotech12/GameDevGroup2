@@ -24,7 +24,7 @@ void setup() {
   startscreen = new Gif(this, "startscreen.gif");
   startscreen.loop();
   for (int i =0; i<2; i++) {
-    enemies.add(new Enemy(int(random(width)), int(random(height)), 1));
+    enemies.add(new Spider(int(random(width)), int(random(height)), 1));
   }
 }
 void startLevel(int currlev) {
@@ -39,7 +39,7 @@ void startLevel(int currlev) {
   for (int i = 0; i < enemyCount; i++) {
     float rx = random(width);
     float ry = random(height);
-    enemies.add(new Enemy(int(rx), int(ry), currlev));
+    enemies.add(new Spider(int(rx), int(ry), currlev));
   }
   transition = true;
 }
@@ -99,8 +99,8 @@ void draw() {
         e.track(player.pos);
         //e.attack();
         if (e.canAttack(player) == true) {
-          e.dash(player);
-          e.fire();
+          e.attack(player);
+          //e.fire();
           //  println("attacked for " + e.dmg + " damage");
         }
         if (player.isHit(e) && millis() - hitTime >= 1000) {
