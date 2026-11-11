@@ -1,96 +1,103 @@
-// Karlyn Tran
+//Torbjorn Harvey
+
 import gifAnimation.*;
-class Projectile{
-  float x, y;
-  int speed, frame;
-  PVector pos;
-  String type;
-  Gif plasma;
-  Projectile(float x, float y, int speed, int frame, String type, PApplet parent){
+class Enemy {
+  boolean isDashing = false, attacking;
+  PVector pos, dashDir;
+  int x, y, size, speed, dashSpeed, dashFrms, dashMaxFrms, health, lvl, dmg, fireTime;
+  ArrayList<Projectile> enemyProj = new ArrayList<Projectile>();
+  PImage skull;
+  Timer cooldown = new Timer(1300);
+  Enemy(int x, int y, int lvl) {
     this.x = x;
     this.y = y;
-    this.speed = speed;
-    this.frame = frame;
-    this.type = type;
+    this.lvl = lvl;
+    health = lvl*20;
+    speed = lvl/2;
     pos = new PVector(x, y);
-    if (type == "player"){
-      plasma = new Gif(parent, "wizproj.gif");
-    } else{
-      plasma = new Gif(parent, "enemyproj.gif");
-    }
-    plasma.loop();
+    size = 100;
+    skull = loadImage("enemy.png");
+    cooldown.start();
+    dmg = lvl*2;
+    dashSpeed = speed*3;
+    dashFrms = 0;
+    dashMaxFrms = 30;
   }
-  void display(){
-    imageMode(CENTER);
-    rectMode(CENTER);
-    //fill(255, 255,100);
-    //rect(x,y, 50, 50);
-    image(plasma,pos.x,pos.y);
-  }
-  void move(){
-    //if (player.freezeFrame == 0){
-    //  x -=speed;
-    //}
-    //if (player.freezeFrame == 1){
-    //  x +=speed;
-    //}
-    //if (player.freezeFrame == 2){
-    //  y -=speed;
-    //}
-    //if (player.freezeFrame ==3){
-    //  y +=speed;
-    //}
-    if (type == "player"){
-      if (frame == 0){pos.x -=speed;}
-      if (frame == 1){pos.x +=speed;}
-      if (frame == 2){pos.y -=speed;}
-      if (frame == 3){pos.y +=speed;}
+  void track(PVector target) {
+    if (isDashing) {
+      PVector move = PVector.mult(dashDir, dashSpeed);
+      pos.add(move);
+      dashFrms++;
+      if (dashFrms >= dashMaxFrms) {
+        isDashing = false; // Stop dashing after reaching max frames
     }
-    if (type == "enemy"){
-      if (frame == 0){pos.x -=speed;}
-      if (frame == 1){pos.x +=speed;}
-      if (frame == 2){pos.y -=speed;}
-      if (frame == 3){pos.y +=speed;}
-      
-    }
-  }
-  void trackenemy(Enemy e){
-    PVector target;
-    target = e.pos;
-    PVector dir = PVector.sub(target, pos);
+  } else{
+    if (millis() - fireTime >= 1000){
+      PVector dir = PVector.sub(target, pos);
       if (dir.mag() > 2) {
         dir.normalize();
         dir.mult(speed);
         pos.add(dir);
       }
+    }
   }
-  void trackplayer(Wizard w){
-    PVector target;
-    target = w.pos;
-    PVector dir = PVector.sub(target, pos);
-      if (dir.mag() > 2) {
-        dir.normalize();
-        dir.mult(speed);
-        pos.add(dir);
-      }
-  }
-  boolean isOffScreen(){
-    if (y>height+50){
+ }
+  boolean canAttack(Wizard w) {
+    float d = dist(pos.x, pos.y, w.pos.x, w.pos.y);
+    println("distance from player: " + d);
+    if (d<=200 && cooldown.isFinished()) {
       return true;
-    } else{
+    } else {
       return false;
     }
   }
-  boolean isHit(Enemy e){
-    float d = dist(pos.x,pos.y, e.pos.x, e.pos.y);
-    if(d<30 && type != "enemy"){
-      return true;
-    }else{return false;}
+  //void attack(Wizard w) {
+  //  w.health -= dmg;
+  //  cooldown.start();
+  //}
+  void dash(Wizard w) {
+    dashDir = PVector.sub(w.pos, pos);
+    dashDir.normalize();
+    isDashing = true;
+    dashFrms = 0;
+    cooldown.start();
   }
-  boolean isHit(Projectile n){
-    float d = dist(pos.x,pos.y, n.pos.x, n.pos.y);
-    if(d<30 && type != "enemy"){
+  void fire(){
+    fireTime = millis();
+    enemyProj.add(new Projectile(pos.x, pos.y, 5, int(random(0,4)), "enemy", SewerWizard.this));
+    cooldown.start();
+  }
+  void display() {
+    imageMode(CENTER);
+    image(skull, pos.x, pos.y);
+    if (enemyProj.size() > 0){
+      for (int j =0; j <enemyProj.size(); j++) {
+        Wizard w = player;
+        attacking = true;
+        Projectile p = enemyProj.get(j);
+        if (p.isOffScreen()) {
+          enemyProj.remove(p);
+        }
+        if (w.isHite(p)){
+          w.health -= dmg;
+          enemyProj.remove(p);
+        }
+        p.move();
+        //p.display();
+        //p.trackplayer(w);
+      }
+      for (Projectile p : enemyProj) {
+        p.display();
+      }
+    }
+    //fill(255, 100, 100);
+    //ellipse(pos.x, pos.y, size, size);
+  }
+  boolean isOffScreen() {
+    if (y>height+size/2) {
       return true;
-    }else{return false;}
+    } else {
+      return false;
+    }
   }
 }
