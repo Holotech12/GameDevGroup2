@@ -78,10 +78,10 @@ class Wizard{
     float distance = dist(c.pos.x, c.pos.y, pos.x, pos.y);
     return distance < size;
   }
-  boolean isHit(Projectile p) {
-    float distance = dist(p.x, p.y, pos.x, pos.y);
+  boolean isHite(Projectile p) {
+    float distance = dist(p.pos.x, p.pos.y, pos.x, pos.y);
     if (p.type != "player"){
-      return distance < size;
+      return distance < size-20;
     } else {return false;}
   }
   boolean isItem(Item t){
