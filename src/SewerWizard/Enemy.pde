@@ -52,13 +52,22 @@ class Enemy {
     image(skull, pos.x, pos.y);
     if (enemyProj.size() > 0){
       for (int j =0; j <enemyProj.size(); j++) {
+        Wizard w = player;
         attacking = true;
         Projectile p = enemyProj.get(j);
         if (p.isOffScreen()) {
           enemyProj.remove(p);
         }
-        p.display();
+        if (w.isHite(p)){
+          w.health -= dmg;
+          enemyProj.remove(p);
+        }
         p.move();
+        //p.display();
+        //p.trackplayer(w);
+      }
+      for (Projectile p : enemyProj) {
+        p.display();
       }
     }
     //fill(255, 100, 100);
