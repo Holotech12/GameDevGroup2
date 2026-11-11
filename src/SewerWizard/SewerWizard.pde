@@ -100,7 +100,7 @@ void draw() {
         //e.attack();
         if (e.canAttack(player) == true) {
           e.dash(player);
-          //e.fire();
+          e.fire();
           //  println("attacked for " + e.dmg + " damage");
         }
         if (player.isHit(e) && millis() - hitTime >= 1000) {
