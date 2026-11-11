@@ -104,7 +104,6 @@ void draw() {
           //  println("attacked for " + e.dmg + " damage");
         }
         if (player.isHit(e) && millis() - hitTime >= 1000) {
-          enemies.remove(e);
           hitTime = millis();
           player.health -= e.dmg;
         }
