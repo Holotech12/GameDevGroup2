@@ -47,27 +47,22 @@ class Enemy {
     enemyProj.add(new Projectile(pos.x, pos.y, 5, int(random(0,4)), "enemy", SewerWizard.this));
     cooldown.start();
   }
+  void trail() {
+    fill(255,0,0);
+    ellipse(x, y, size/2, size/2);
+  }
   void display() {
     imageMode(CENTER);
     image(skull, pos.x, pos.y);
     if (enemyProj.size() > 0){
       for (int j =0; j <enemyProj.size(); j++) {
-        Wizard w = player;
         attacking = true;
         Projectile p = enemyProj.get(j);
         if (p.isOffScreen()) {
           enemyProj.remove(p);
         }
-        if (w.isHite(p)){
-          w.health -= dmg;
-          enemyProj.remove(p);
-        }
-        p.move();
-        //p.display();
-        //p.trackplayer(w);
-      }
-      for (Projectile p : enemyProj) {
         p.display();
+        p.move();
       }
     }
     //fill(255, 100, 100);
