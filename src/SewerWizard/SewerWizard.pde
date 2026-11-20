@@ -20,7 +20,7 @@ void setup() {
   castCount = new Timer(100);
   proj = new Projectile(200, 200, 5, 1, "player", this);
   item = new Item(100, 100);
-  bg = loadImage("gamebackground.png");
+  bg = loadImage("gamebackgrounda.png");
   startscreen = new Gif(this, "startscreen.gif");
   startscreen.loop();
   for (int i =0; i<2; i++) {
